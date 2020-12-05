@@ -1,0 +1,81 @@
+/*
+    Name        : PlayBox Demo Project
+    Created By  : K.Deepak Kumar
+    Contact at  : deepakplay14@gmail.com
+*/
+
+
+*{
+    margin:0px;
+    border:0px;
+    padding:0px;
+    outline:none;
+    box-sizing: border-box;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color:#333;
+
+    background-color: rgb(234, 251, 255);
+}
+
+.list{
+    display: block;
+    width: 95%;
+    max-width:600px;
+    text-align: center;
+    margin: 100px auto;
+    padding: 10px 20px 30px;
+    border-radius: 15px;
+    background-color: #FFF;
+    box-shadow: 0 0 25px rgba(0, 0, 0,.3);
+}
+
+.list h1{
+    padding:20px 0;
+    color:#333;
+    width: 90%;
+    margin: 0 auto 10px;
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.list .description{
+    text-align: justify;
+    padding: 15px 30px;
+}
+.list li{
+    padding:10px;
+}
+
+.blue-button{
+    padding:10px 20px;
+    background-color: rgb(43, 43, 255);
+    color:#EEE;
+    font-size: .9rem;
+    margin:10px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0,.3);
+}
+
+.blue-button:hover{
+    transition: all .2s ease;
+    background-color: rgb(63, 63, 255);
+    color:#FFF;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0,.2);
+}
+
+@media (max-width:600px){
+    .list{
+        margin: 40px auto;
+    }
+}
