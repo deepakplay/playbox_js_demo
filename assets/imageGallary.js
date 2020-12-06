@@ -24,9 +24,11 @@ $(document).ready(function(){
     const setActive = function (index){
         $(imgList.get(active)).removeClass('active');
         $(imgList.get(index)).addClass('active');
-        $('.bgImage').fadeOut(100, function(){
+        const image = $('.bgImage');
+        image.stop(true);
+        image.fadeOut(100, function(){
             $(this).attr('src', imageList[index]);
-        }).fadeIn(200);
+        }).fadeIn(300);
         active = index;
     }
     setActive(0);
