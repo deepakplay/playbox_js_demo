@@ -148,7 +148,24 @@ const PlayBox = (function(){
         return element;
     }
 
-    var fadeIn = function(element, duration, myfun=()=>{}){
+    var fadeIn = function(element, duration=100, myfun=()=>{}){
+        element = getElement(element);
+        element.setAttribute("style", `display:block; animation: fadeIn ${duration}ms ease;`);
+        setTimeout(function(){
+            myfun();
+        },duration);
+    }
+
+    var fadeOut = function(element, duration=100, myfun=()=>{}){
+        element = getElement(element);
+        element.setAttribute("style", `display:block; opacity:0; animation:fadeOut ${duration}ms ease`);
+        setTimeout(function(){
+            element.setAttribute("style", "display:none;");
+            myfun();
+        },duration);
+    }
+
+    var fadeSlideIn = function(element, duration=100, myfun=()=>{}){
         element = getElement(element);
         element.setAttribute("style", `display:block; animation: fadeIn ${duration}ms ease;`);
         element.querySelector('.container').setAttribute("style", `animation: slideIn ${duration}ms ease;`);
@@ -157,7 +174,7 @@ const PlayBox = (function(){
         },duration);
     }
 
-    var fadeOut = function(element, duration, myfun=()=>{}){
+    var fadeSlideOut = function(element, duration, myfun=()=>{}){
         element = getElement(element);
         element.setAttribute("style", `display:block; opacity:0; animation:fadeOut ${duration}ms ease`);
         element.querySelector('.container').setAttribute("style", `animation: slideOut ${duration}ms ease;`);
@@ -172,6 +189,11 @@ const PlayBox = (function(){
         element.addEventListener('click',clickFunction);
     }
 
+    var append = function(element, html){
+        element  = getElement(element);
+        element.insertAdjacentHTML('beforeend',html);
+    }
+
     var prepend = function(element, html){
         element  = getElement(element);
         element.insertAdjacentHTML('afterbegin',html);
@@ -181,20 +203,38 @@ const PlayBox = (function(){
         return getElement(element).classList.contains(classname);
     }
 
-    return function(boxButton, boxTarget, enter=300, exit=300){
+    const loadBox = function(boxButton, boxTarget, enter, exit){
         prepend(boxTarget, '<div class="exit">&times;</div>')
         
         // Open PlayBox
         click(boxButton, function(event){
-            fadeIn(boxTarget, enter);
+            fadeSlideIn(boxTarget, enter);
             event.preventDefault();
-        })
-    
+        });
+        
         // Add Event handlers to the PlayBox
         click(boxTarget, function(event){
             if(hasClass(event.target, 'exit')){
-                fadeOut(boxTarget, exit);
-            }          
-       });
+                fadeSlideOut(boxTarget, exit);
+            }
+        });
+    };
+
+    return {
+        open : function(boxButton, boxTarget, enter=300, exit=300){
+            loadBox(boxButton,boxTarget, enter, exit);
+        },
+
+        imageOpen : function(boxButton, boxTarget, enter=300, exit=300){
+            loadBox(boxButton,boxTarget, enter, exit);
+        },
+
+        getElement: getElement,
+        fadeIn: fadeIn,
+        fadeOut: fadeOut,
+        click: click,
+        append: append,
+        prepend: prepend,
+        hasClass: hasClass,
     }
 })();
