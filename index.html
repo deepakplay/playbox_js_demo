@@ -32,18 +32,9 @@
             <p class="description">PlayBox is a Javascript library created by Deepak Kumar, This library helps to displays images and videos by filling the screen and dimming out the web page.</p>
             <p class="description">This PlayBox Library does not use any other external Library, It also contains some of the polyfill jQuery functions.</p>
             <li> <!--Image Gallary-->
-                <div class="playbox imageGallaryBox">
-                    <div class="container">
-                        <span class="leftarrow arrow">&lt;</span>
-                        <img class="bgImage">
-                        <span class="rightarrow arrow">&gt;</span>
-                    </div>
-                    <div class="imageList">
-                    </div>
-                </div>  
-                <span>
-                    <strong>Demo - </strong>
-                </span>
+                <div class="playboximage imageGallaryBox">
+                </div>
+                <span> <strong>Demo - </strong> </span>
                 <button class="blue-button imageGallary">Image Gallary Demo</button>
                 <p></p>
             </li>
@@ -51,7 +42,7 @@
     </main>
     <script>
         
-        PlayBox.open('.imageGallary', '.imageGallaryBox', 300, 300);
+        PlayBox.imageOpen('.imageGallary', '.imageGallaryBox', 300, 300);
         
         /* PlayBox.imageOpen('.imageGallary', '.imageGallaryBox', [
             'images/image1.webp',

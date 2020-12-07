@@ -12,14 +12,14 @@ const PlayBox = (function(){
     (function(){
         var style = document.createElement('style');
         style.innerHTML = ` 
-            .playbox *{
+            .playbox *, .playboximage *{
                 margin:0px;
                 border:0px;
                 padding:0px;
                 box-sizing:border-box;
             }
 
-            .playbox{
+            .playbox , .playboximage{
                 position:fixed; 
                 top:0;
                 left:0;
@@ -31,7 +31,7 @@ const PlayBox = (function(){
                 display:none;
             }
                         
-            .playbox .exit{
+            .playbox .exit, .playboximage .exit{
                 position:absolute;
                 top:10px;
                 right:10px;
@@ -49,12 +49,12 @@ const PlayBox = (function(){
                 z-index:10;
             }
 
-            .playbox .exit::selection {
+            .playbox .exit::selection, .playboximage .exit::selection{
                 color: none;
                 background: none;
             }
                         
-            .playbox .container{
+            .playbox .container, .playboximage .container{
                 position:relative;
                 top:100px;
                 width:95%;
@@ -68,12 +68,12 @@ const PlayBox = (function(){
             }
                         
             @media (max-width:700px){
-                .playbox .container{
+                .playbox .container, .playboximage .container{
                     top:65px;
                     width:92%;
                 }
             
-                .playbox .exit{
+                .playbox .exit, .playboximage .exit{
                     top:8px;
                     right:8px;
                     width:30px;
@@ -225,7 +225,13 @@ const PlayBox = (function(){
             loadBox(boxButton,boxTarget, enter, exit);
         },
 
-        imageOpen : function(boxButton, boxTarget, enter=300, exit=300){
+        imageOpen : function(boxButton, boxTarget, imageList=[], enter=300, exit=300){
+            prepend(boxTarget, `<div class="container">
+                                    <span class="leftarrow arrow">&lt;</span>
+                                    <img class="bgImage">
+                                    <span class="rightarrow arrow">&gt;</span>
+                                </div>
+                                <div class="imageList"></div>`)
             loadBox(boxButton,boxTarget, enter, exit);
         },
 
