@@ -15,7 +15,6 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"></noscript>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/style.css">
-    <script src="assets/playbox.js"></script>
     <script src="https://www.googletagmanager.com/gtag/js?id=G-H6PDZ8R2J1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -31,21 +30,30 @@
             <p class="description">PlayBox is a Javascript library created by Deepak Kumar, This library helps to displays images and videos by filling the screen and dimming out the web page.</p>
             <p class="description">This PlayBox Library does not use any other external Library, It also contains some of the polyfill jQuery functions.</p>
             <a class="github_link" href="https://github.com/deepakplay/playbox-js" target="_blank">View Source at GitHub</a>
+            
             <li> <!--Image Gallary-->
-                <div class="playboximage imageGallaryBox1"></div>
+                <div class="playboximage imageGallaryBox1"></div> <!-- Container 1 -->
                 <span> <strong>Image Gallary Demo - </strong> </span>
-                <button class="blue-button imageGallary1">Slider Gallery 1</button>
+                <button class="blue-button imageGallary1">Slider Gallery 1</button> <!-- Button Triger 1 -->
             </li>
 
             <li> <!--Image Gallary 2-->
-                <div class="playboximage imageGallaryBox2"></div>
+                <div class="playboximage imageGallaryBox2"></div> <!-- Container 2 -->
                 <span> <strong>Image Gallary Demo - </strong> </span>
-                <button class="blue-button imageGallary2">Slider Gallery 2</button>
+                <button class="blue-button imageGallary2">Slider Gallery 2</button> <!-- Button Triger 2 -->
             </li>
         </ul>
     </main>
+    <!-- PlayBox Library Included -->
+    <script src="assets/playbox.js"></script> 
+
     <script>
-        
+        // HTML Content Box
+        // PlayBox.open(targetBox,  targetBoxTrigerButton,  fade in duration, fade out duration )
+
+        // Image Gallary Box
+        // PlayBox.imageOpen(targetBox,  targetBoxTrigerButton, [Array of Images],  fade in duration, fade out duration )
+
         PlayBox.imageOpen('.imageGallary1', '.imageGallaryBox1',  [ 'images/flowers1.webp',
                                                                     'images/flowers2.webp',
                                                                     'images/flowers3.webp',

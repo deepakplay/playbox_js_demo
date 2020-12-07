@@ -10,8 +10,8 @@
 "use strict";
 const PlayBox = (function(){
     (function(){
-        var containerStyle = document.createElement('style');
-        var imageBoxStyle = document.createElement('style');
+        const containerStyle = document.createElement('style');
+        const imageBoxStyle = document.createElement('style');
         containerStyle.innerHTML = ` 
             .playbox *, .playboximage *{
                 margin:0px;
@@ -331,11 +331,12 @@ const PlayBox = (function(){
     };
 
     return {
-        // PlayBox Open Object Litral
+        // PlayBox Open
         open : function(boxButton, boxTarget, enter=300, exit=300){
             loadBox(boxButton,boxTarget, enter, exit);
         },
 
+        // PlayBox Image Slider 
         imageOpen : function(boxButton, boxTarget, imageList=[], enter=300, exit=300){
             prepend(boxTarget, `<div class="container">
                                     <span class="leftarrow arrow">&lt;</span>
@@ -345,19 +346,21 @@ const PlayBox = (function(){
                                 <div class="imageList"></div>`)
             loadBox(boxButton,boxTarget, enter, exit);
 
-            // State
+            // State Managment throught HashMap
             const state = new Map();
             state.set(boxTarget+'active', 0);
             
             // Active Image : boxTarget+'active'
             const imgListElement = getElement(boxTarget +' .imageList');
             
+            // adding Image to the list
             imageList.forEach((item)=>{
                 append(imgListElement ,`<img src="${item}">`);
             });
             
             const imgList = children(imgListElement);
             
+            // Active Image
             const setActive = function (index){
                 imgList[state.get(boxTarget+'active')].classList.remove('active');
                 imgList[index].classList.add('active');
@@ -371,6 +374,7 @@ const PlayBox = (function(){
             }
             setActive(0);
             
+            // Item List Arrow Click Handler function
             click(boxTarget, function(event){
                 const target = event.target;
                 if(hasClass(target, 'leftarrow')){
@@ -388,6 +392,7 @@ const PlayBox = (function(){
                 }
             });
 
+            //Item List Click Handler
             click(imgListElement, function(event){
                 const target = event.target;
                 if(is(target, 'img')){
@@ -396,6 +401,7 @@ const PlayBox = (function(){
             });
         },
         
+        // Polyfilled Similar jQuery Functions available to use from PlayBox
         getElement: getElement,
         getElements: getElements,
         fadeIn: fadeIn,
