@@ -4,12 +4,11 @@
     Contact at  : deepakplay14@gmail.com
 */
 
-
 *{
-    margin:0px;
-    border:0px;
-    padding:0px;
-    outline:none;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    outline: none;
     box-sizing: border-box;
     line-height: 1.4;
     text-decoration: none;
@@ -23,8 +22,7 @@ body{
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 1rem;
-    color:#333;
-
+    color: #333;
     background-color: rgb(234, 251, 255);
 }
 
@@ -48,20 +46,32 @@ body{
     border-bottom: 1px solid rgb(220, 220, 220);
 }
 
+.github_link{
+    color: rgba(150, 0, 0);
+    display: block;
+    margin:20px auto;
+}
+
+.github_link:hover{
+    transition: all .2s ease;
+    color: rgba(255, 0, 0);
+    text-decoration: underline;
+}
+
 .list .description{
     text-align: justify;
     padding: 15px 30px;
 }
 .list li{
-    padding:10px;
+    padding: 10px;
 }
 
 .blue-button{
-    padding:10px 20px;
+    padding: 10px 20px;
     background-color: rgb(43, 43, 255);
-    color:#EEE;
+    color: #EEE;
     font-size: .9rem;
-    margin:10px;
+    margin: 10px;
     border-radius: 4px;
     cursor: pointer;
     box-shadow: 3px 3px 3px rgba(0, 0, 0,.3);
@@ -70,7 +80,7 @@ body{
 .blue-button:hover{
     transition: all .2s ease;
     background-color: rgb(63, 63, 255);
-    color:#FFF;
+    color: #FFF;
     box-shadow: 3px 3px 3px rgba(0, 0, 0,.2);
 }
 
