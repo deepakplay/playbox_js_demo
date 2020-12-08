@@ -67,6 +67,8 @@ body{
 }
 
 .blue-button{
+    width:150px;
+    display:inline-block;
     padding: 10px 20px;
     background-color: rgb(43, 43, 255);
     color: #EEE;
